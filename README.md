@@ -2,6 +2,8 @@
 
 This is a simple note taking app built with React.
 
+[image](https://github.com/jhargett1/keeper-app-react/assets/119984652/76623a8f-466e-4078-a3e2-b9a5b297e576)
+
 ## Usage
 
 To run this app:
