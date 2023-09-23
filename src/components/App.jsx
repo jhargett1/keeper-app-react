@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  //- Pass the new note back to the App.
+  function addNote(newNote) {
+    //- Add new note to an array.
+    setNotes((prevNotes) => {
+      return [...prevNotes, newNote];
+    });
+  }
+
+  //- Pass a id over to the Note component, pass it back to the App when deleting.
+  function deleteNote(id) {
+    setNotes((prevNotes) => {
+      //- Use the filter function to filter out the item that needs deletion.
+      return prevNotes.filter((noteItem, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
-      <CreateArea />
-      <Note key={1} title="Note title" content="Note content" />
+      <CreateArea onAdd={addNote} />
+      {/* - Take array and render seperate Note components for each item. */}
+      {notes.map((noteItem, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={noteItem.title}
+            content={noteItem.content}
+            onDelete={deleteNote}
+          />
+        );
+      })}
+
       <Footer />
     </div>
   );

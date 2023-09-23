@@ -1,6 +1,6 @@
-# React Programming Keeper Puns App
+# Note Taking App
 
-This is a simple React app that displays programming-related puns.
+This is a simple note taking app built with React.
 
 ## Usage
 
@@ -18,31 +18,28 @@ To run this app:
 
 ## Structure
 
-- `index.js` - Entry point that renders App component
-- `App.js` - Main App component that renders Header, Puns, and Footer
-- `Header.js` - Header component
-- `Footer.js` - Footer component
+- `index.js` - Entry point that renders App
+- `App.js` - Main App component that holds state and logic
+- `CreateArea.js` - Form to add new notes
+- `Note.js` - Individual note component
 
-The App component maps over the puns array and renders a Pun component for each one, passing the pun info as props.
+The App component manages an array of notes in state. It passes add and delete functions to child components.
 
 ## Functionality
 
-This app displays a list of programming-related puns with some fake data. Each pun has a title and punchline.
+This app allows users to add and delete notes.
 
-For example:
+To add a note, enter a title and content in the form and click "Add". This will add the new note to state in App.js.
 
-- "Hardware vs Software" - You can hit your hardware with a hammer, but you can only curse at your software.
+To delete a note, click the "Delete" button on the note. This will trigger a delete function in App.js that filters the note out of state.
 
-- "JavaScript" - Why was the JavaScript developer sad? Because they didn't Node how to Express themselves.
+In the future, this app could be expanded by:
 
-In the future, this could be expanded into a more fully featured pun collection app by adding things like:
+- Adding user accounts
+- Storing notes in a database
+- Adding rich text editing
 
-- Pun input/editing
-- User accounts
-- Backend for data persistence
-- Search/filter puns
-
-But for now it simply displays some hardcoded pun data in a list.
+But the core functionality is set up - adding and deleting notes.
 
 ## License
 
